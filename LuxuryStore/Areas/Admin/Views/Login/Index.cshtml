@@ -1,0 +1,204 @@
+﻿@model LuxuryStore.Areas.Models.LoginModel
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<!DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Đăng Nhập</title>
+        <link rel="shortcut icon" href="~/Content/IMAGES/luxurylogo.jpg">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="~/Content/CSS/login.css" type="text/css" rel="stylesheet">
+         <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
+    </head>*@
+
+
+<div class="container-fluid bg">
+    <div class="row">
+        <!-- <div class="col-md-4"></div> -->
+        <div class="col-md-4 mx-auto">
+            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+            {
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <h2>Đăng nhập</h2>
+                <div class="form-group" id="form-login">
+                    <label for="myEmailSignUp">User Name</label>
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @id = "Name", @autofocus = "autofocus" })
+                </div>
+                <div class="form-group">
+                    <label for="myPasswordSignUp">Mật khẩu</label>
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @id = "Pass" })
+                    <span id="icon-click">
+                        <i class="fas fa-eye" aria-hidden="true" id="eye"></i>
+                    </span>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(model => model.RememberMe) Ghi nhớ mật khẩu
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block" id="signin">Đăng nhập</button>
+                </div>
+                <div class="form-group">
+                    <p style="text-align: center; margin-top: 5px;"><a href="#">Quên mật khẩu?</a></p>
+                    <p class="note" style="text-align:center">Bạn chưa có tài khoản? Đăng ký <a href="#register" data-toggle="modal">tại đây</a></p>
+                </div>
+            }
+        </div>
+        <!-- <div class="col-md-4"></div> -->
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registerLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerLabel" style="color: rgb(15, 134, 238);">Đăng ký</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="createAcc" id="formRegister">
+                    <div class="form-group">
+                        <label for="myEmail">Email</label>
+                        <input type="email" name="myEmail" id="myEmail" class="form-control" placeholder="Email">
+                        <!-- <span id="text"></span> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="myUserName">Tên người dùng</label>
+                        <input type="text" name="userName" id="username" class="form-control" placeholder="Tên người dùng">
+                    </div>
+                    <div class="form-group">
+                        <label for="myPassword">Mật khẩu</label>
+                        <input type="password" name="myPassword" id="myPassword" class="form-control" placeholder="Mật khẩu">
+                    </div>
+                    <div class="form-group">
+                        <label for="myPasswordConfirm">Xác nhận mật khẩu</label>
+                        <input type="password" name="confirmPass" id="confirmPass" class="form-control" placeholder="Xác nhận mật khẩu">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="Register">Đăng ký</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST-->
+
+<div class="toast" id="failedToastSignin" data-delay="3000" style="position: absolute; top: 0; right: 0;">
+    <div class="toast-header Failed">
+        <strong class="mr-auto">Sign in Failed</strong>
+        <!-- <small>now</small> -->
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body Failed">
+        Đăng nhập không thành công! Vui lòng xem lại form.
+    </div>
+</div>
+<div class="toast" id="successToastSignin" data-delay="3000" style="position: absolute; top: 0; right: 0;">
+    <div class="toast-header Success">
+        <strong class="mr-auto">Sign in Success</strong>
+        <!-- <small>now</small> -->
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body Success">
+        Đăng nhập thành công!
+    </div>
+</div>
+
+<div class="toast" id="failedToast" data-delay="3000" style="position: absolute; top: 0; right: 0;">
+    <div class="toast-header Failed">
+        <strong class="mr-auto">Register Failed</strong>
+        <!-- <small>now</small> -->
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body Failed">
+        Đăng ký không thành công! Vui lòng sửa lại bảng mẫu.
+    </div>
+</div>
+<div class="toast" id="successToast" data-delay="3000" style="position: absolute; top: 0; right: 0;">
+    <div class="toast-header Success">
+        <strong class="mr-auto">Register Success</strong>
+        <!-- <small>now</small> -->
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body Success">
+        Đăng ký thành công!
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+@*<script src="~/Content/JS/login.js"></script>*@
+<style>
+    .col-md-4 {
+        padding: 50px 60px;
+        margin-top: 16vh;
+        -webkit-box-shadow: 9px 7px 52px 6px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 9px 7px 52px 6px rgba(0, 0, 0, 0.75);
+        box-shadow: 9px 7px 52px 6px rgba(0, 0, 0, 0.75);
+        color: rgb(15, 134, 238);
+    }
+
+    #icon-click {
+        position: absolute;
+        right: 75px;
+        transform: translate(0, -60%);
+        top: 50%;
+        cursor: pointer;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('#icon-click').click(function () {
+            // $('#eye').css("color", "#5887ef");
+            var input = $('#Pass');
+            if (input.attr("type") === "password") {
+                input.attr("type", "text");
+                $('#eye').toggleClass('fa-eye-slash');
+            } else {
+                input.attr("type", "password");
+                // $('#eye').css("color", "#7a797e");
+                $('#eye').toggleClass('fas fa-eye');
+            }
+        })
+
+        $('#signin').on('click', function () {
+            var userName = $('#Name').val();
+            var password = $('#Pass').val();
+
+            if (userName != '' && password != '') {
+                var data = {User}
+                $('#failedToastSignin').toast('show');
+                //$('#successToastSignin').toast('show');
+            } else {
+                //$('#failedToastSignin').toast('show');
+            }
+
+            $('#Name, #Pass').keyup(function (e) {
+                if (e.keyCode === 13) {
+                    $('#signin').click();
+                }
+            })
+        });
+</script>
+

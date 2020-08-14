@@ -1,0 +1,12 @@
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\bin\Debug\DatabaseLuxuryStore.dll.config
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\bin\Debug\DatabaseLuxuryStore.dll
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\bin\Debug\DatabaseLuxuryStore.pdb
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\bin\Debug\EntityFramework.dll
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\bin\Debug\EntityFramework.SqlServer.dll
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\bin\Debug\EntityFramework.xml
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\bin\Debug\EntityFramework.SqlServer.xml
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\obj\Debug\DatabaseLuxuryStore.csprojAssemblyReference.cache
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\obj\Debug\DatabaseLuxuryStore.csproj.CoreCompileInputs.cache
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\obj\Debug\DatabaseLuxuryStore.csproj.CopyComplete
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\obj\Debug\DatabaseLuxuryStore.dll
+G:\ASP.NET\LuxuryStore\DatabaseLuxuryStore\obj\Debug\DatabaseLuxuryStore.pdb

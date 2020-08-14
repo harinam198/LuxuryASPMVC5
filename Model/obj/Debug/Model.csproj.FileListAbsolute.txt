@@ -1,0 +1,12 @@
+G:\ASP.NET\LuxuryStore\Model\bin\Debug\Model.dll.config
+G:\ASP.NET\LuxuryStore\Model\bin\Debug\Model.dll
+G:\ASP.NET\LuxuryStore\Model\bin\Debug\Model.pdb
+G:\ASP.NET\LuxuryStore\Model\bin\Debug\EntityFramework.dll
+G:\ASP.NET\LuxuryStore\Model\bin\Debug\EntityFramework.SqlServer.dll
+G:\ASP.NET\LuxuryStore\Model\bin\Debug\EntityFramework.xml
+G:\ASP.NET\LuxuryStore\Model\bin\Debug\EntityFramework.SqlServer.xml
+G:\ASP.NET\LuxuryStore\Model\obj\Debug\Model.csprojAssemblyReference.cache
+G:\ASP.NET\LuxuryStore\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+G:\ASP.NET\LuxuryStore\Model\obj\Debug\Model.csproj.CopyComplete
+G:\ASP.NET\LuxuryStore\Model\obj\Debug\Model.dll
+G:\ASP.NET\LuxuryStore\Model\obj\Debug\Model.pdb
